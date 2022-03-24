@@ -27,8 +27,10 @@ int main()
 	sphere0.radius = 2.0f;
 	sphere spheres[] = {sphere0};
 	ray ray;
-	
-	ray.rayTrace(spheres[0], image, Fov);
+
+	png::image< png::rgb_pixel > HDRI("assets/studio_country_hall_4k.png");
+
+	ray.rayTrace(spheres[0], image, Fov, HDRI);
 	//ray ray;
 	//ray.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 

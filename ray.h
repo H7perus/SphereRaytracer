@@ -22,7 +22,7 @@ public:
 		direction = glm::reflect(direction, normal);
 	}
 
-	void rayTrace(sphere& sphere, png::image<png::rgb_pixel>& image, float FOV)
+	void rayTrace(sphere& sphere, png::image<png::rgb_pixel>& image, float FOV, png::image<png::rgb_pixel>& HDRI)
 	{
 
 		float FocalLength = (1 / tan(FOV / 360 * PI)) * (image.get_width() / 2);
@@ -30,7 +30,6 @@ public:
 		ray ray;
 		ray.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 
-		png::image< png::rgb_pixel > HDRI("assets/studio_country_hall_4k.png");
 
 		for (png::uint_32 y = 0; y < image.get_height(); y++) {
 
