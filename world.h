@@ -7,6 +7,8 @@ public:
 	camera();
 	~camera();
 	glm::vec3 pos;
+	float pitch;
+	float yaw;
 
 private:
 
