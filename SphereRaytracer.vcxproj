@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>ClangCL</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -77,8 +77,8 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(projectdir)ext;$(IncludePath)</IncludePath>
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(LLVMInstallDir)\lib\clang\$(LLVMToolsVersion)\include;$(IncludePath);$(ProjectDir)\ext;$(ProjectDir)\ext\libpng\include\libpng16</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -122,6 +122,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\ext\libpng\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);libpng16d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,10 +149,12 @@
     <ClCompile Include="WindowPlaceholder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="world.h" />
+    <ClInclude Include="shader.h" />
     <ClInclude Include="hitobject.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="sdk.h" />
-    <ClInclude Include="world.h" />
+    <ClInclude Include="camera.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,10 +29,16 @@
     <ClInclude Include="ray.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="world.h">
+    <ClInclude Include="camera.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="hitobject.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
