@@ -25,7 +25,6 @@ public:
 	void set_focal_length(int image_width)
 	{
 		focal_length = (1 / tan(FOV / 360 * glm::pi<float>())) * (image_width / 2);
-		std::cout << focal_length; 
 	}
 private:
 
